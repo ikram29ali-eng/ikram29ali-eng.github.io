@@ -4,24 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alia — Intelligence for Your Financial Future</title>
+<title>Alia — A New Kind of Financial Intelligence</title>
 
 <meta
   name="description"
-  content="Alia is building a new kind of financial intelligence company powered by coordinated AI systems and human-defined controls."
+  content="Alia is building a different kind of financial company — one where intelligence can research, coordinate, learn and work toward a financial mission while people remain in control."
 >
 
 <style>
 
 :root {
-  --ink: #10152c;
-  --muted: #667085;
-  --blue: #4967ff;
-  --violet: #8d6aff;
-  --sky: #76c7ff;
-  --cream: #fbfaf7;
-  --white: #ffffff;
-  --line: rgba(16,21,44,.09);
+  --ink: #24171f;
+  --aubergine: #4a2038;
+  --persimmon: #e5542f;
+  --saffron: #d99a18;
+  --rose: #c87983;
+  --olive: #74733f;
+  --bone: #f0e7d8;
+  --cream: #fbf5ea;
+  --paper: #fffaf1;
+  --muted: #736768;
+  --line: rgba(36,23,31,.10);
 }
 
 * {
@@ -41,18 +44,12 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  background:
-    linear-gradient(
-      180deg,
-      #fbfaf7 0%,
-      #f7f8ff 45%,
-      #ffffff 100%
-    );
+  background: var(--bone);
   color: var(--ink);
   overflow-x: hidden;
 }
 
-/* ---------------- NAV ---------------- */
+/* NAV */
 
 nav {
   width: min(1180px, calc(100% - 40px));
@@ -64,44 +61,46 @@ nav {
 
   padding: 14px 18px;
 
-  position: relative;
-  z-index: 50;
-
-  background: rgba(255,255,255,.68);
-  border: 1px solid rgba(255,255,255,.9);
+  background: rgba(255,250,241,.84);
+  border: 1px solid rgba(74,32,56,.10);
   border-radius: 999px;
 
   backdrop-filter: blur(18px);
 
   box-shadow:
-    0 12px 40px rgba(60,72,120,.08);
+    0 16px 40px rgba(65,41,44,.08);
+
+  position: relative;
+  z-index: 20;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
+
   font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -.5px;
+  font-weight: 850;
+  letter-spacing: -.6px;
 }
 
 .logo-orb {
   width: 34px;
   height: 34px;
+
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle at 30% 25%,
-      #ffffff 0%,
-      #9bdcff 20%,
-      #7467ff 55%,
-      #35228f 100%
+      circle at 30% 28%,
+      #f4c279 0%,
+      #e5542f 38%,
+      #8f2f35 66%,
+      #4a2038 100%
     );
 
   box-shadow:
-    0 0 35px rgba(91,106,255,.35);
+    0 0 28px rgba(229,84,47,.30);
 }
 
 .nav-links {
@@ -111,79 +110,80 @@ nav {
 }
 
 .nav-links a {
+  color: #5e4a50;
   text-decoration: none;
-  color: #41465b;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 650;
 }
 
 .nav-links a:hover {
-  color: var(--blue);
+  color: var(--persimmon);
 }
 
 .nav-button {
-  background: var(--ink);
-  color: white !important;
   padding: 10px 18px;
   border-radius: 999px;
+
+  background: var(--ink);
+  color: var(--paper) !important;
 }
 
-/* ---------------- HERO ---------------- */
+/* HERO */
 
 .hero {
-  min-height: 92vh;
-  position: relative;
+  min-height: 91vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 100px 24px 120px;
+  padding: 90px 24px 120px;
 
+  position: relative;
   overflow: hidden;
 }
 
-.glow-one {
+.hero-shape-one {
   position: absolute;
 
-  width: 620px;
-  height: 620px;
+  width: 430px;
+  height: 430px;
 
   left: -180px;
-  top: 40px;
+  top: 180px;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(126,207,255,.46),
-      rgba(126,207,255,0) 68%
-    );
+  border-radius: 50%;
 
-  filter: blur(16px);
+  background: var(--rose);
+
+  opacity: .28;
+
+  filter: blur(2px);
 }
 
-.glow-two {
+.hero-shape-two {
   position: absolute;
 
-  width: 720px;
-  height: 720px;
+  width: 320px;
+  height: 320px;
 
-  right: -240px;
-  top: -90px;
+  right: -80px;
+  top: 40px;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(151,116,255,.34),
-      rgba(151,116,255,0) 67%
-    );
+  border-radius: 48% 52% 63% 37% / 46% 35% 65% 54%;
 
-  filter: blur(20px);
+  background: var(--saffron);
+
+  opacity: .20;
+
+  transform: rotate(20deg);
 }
 
 .hero-content {
-  width: min(1000px, 100%);
+  width: min(1080px, 100%);
+
   text-align: center;
+
   position: relative;
   z-index: 2;
 }
@@ -195,18 +195,16 @@ nav {
 
   padding: 8px 14px;
 
-  background: rgba(255,255,255,.7);
-  border: 1px solid rgba(88,98,170,.13);
+  background: rgba(255,250,241,.76);
+
+  border: 1px solid rgba(74,32,56,.10);
 
   border-radius: 999px;
 
-  color: #555d7c;
+  color: #624c51;
 
   font-size: 13px;
-  font-weight: 650;
-
-  box-shadow:
-    0 10px 35px rgba(66,74,120,.08);
+  font-weight: 700;
 }
 
 .badge-dot {
@@ -215,56 +213,43 @@ nav {
 
   border-radius: 50%;
 
-  background: #6e6cff;
-
-  box-shadow:
-    0 0 12px #7e7cff;
+  background: var(--persimmon);
 }
 
 h1 {
-  margin: 32px auto 24px;
+  max-width: 1050px;
+  margin: 34px auto 24px;
 
-  max-width: 980px;
+  font-size: clamp(64px, 9vw, 118px);
 
-  font-size: clamp(58px, 8vw, 106px);
-
-  line-height: .98;
+  line-height: .94;
   letter-spacing: -5px;
-  font-weight: 760;
+
+  font-weight: 800;
 }
 
-.gradient-text {
-  background:
-    linear-gradient(
-      105deg,
-      #20294c 0%,
-      #4967ff 40%,
-      #9c62dd 75%,
-      #d08cb5 100%
-    );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.hero-accent {
+  color: var(--persimmon);
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 780px;
+
   margin: 0 auto;
 
-  color: #60697c;
+  color: #6d5b60;
 
   font-size: clamp(18px, 2vw, 22px);
   line-height: 1.7;
 }
 
 .hero-actions {
-  margin-top: 36px;
-
   display: flex;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+
+  margin-top: 36px;
 }
 
 .button {
@@ -281,7 +266,7 @@ h1 {
   text-decoration: none;
 
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 750;
 
   transition:
     transform .2s ease,
@@ -293,30 +278,21 @@ h1 {
 }
 
 .button-primary {
-  color: white;
-
-  background:
-    linear-gradient(
-      115deg,
-      #222a4c,
-      #526cff
-    );
+  background: var(--persimmon);
+  color: var(--paper);
 
   box-shadow:
-    0 14px 35px rgba(73,103,255,.28);
+    0 16px 40px rgba(229,84,47,.22);
 }
 
 .button-light {
+  background: rgba(255,250,241,.74);
   color: var(--ink);
 
-  background:
-    rgba(255,255,255,.72);
-
-  border:
-    1px solid rgba(16,21,44,.10);
+  border: 1px solid rgba(36,23,31,.10);
 }
 
-/* ---------------- VISION ---------------- */
+/* SHARED */
 
 .section {
   width: min(1160px, calc(100% - 44px));
@@ -326,59 +302,52 @@ h1 {
 }
 
 .kicker {
-  color: #6574dd;
+  color: var(--persimmon);
 
   text-transform: uppercase;
 
-  letter-spacing: 2.5px;
+  letter-spacing: 2.4px;
 
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .section h2 {
-  margin: 14px 0 18px;
+  max-width: 900px;
 
-  max-width: 850px;
+  margin: 14px 0 20px;
 
-  font-size: clamp(38px, 5vw, 66px);
+  font-size: clamp(40px, 5vw, 68px);
 
-  line-height: 1.06;
+  line-height: 1.04;
   letter-spacing: -2.6px;
 }
 
 .section-intro {
-  max-width: 700px;
+  max-width: 730px;
 
   color: var(--muted);
 
   font-size: 19px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* ---------------- HUMAN VISION BLOCK ---------------- */
+/* VISION */
 
 .vision {
   position: relative;
-
-  padding: 80px;
-
-  border-radius: 40px;
-
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      135deg,
-      #17213c 0%,
-      #293d80 45%,
-      #725bca 100%
-    );
+  padding: 86px;
 
-  color: white;
+  border-radius: 42px;
+
+  background: var(--aubergine);
+
+  color: var(--paper);
 
   box-shadow:
-    0 40px 90px rgba(43,58,118,.20);
+    0 35px 80px rgba(74,32,56,.20);
 }
 
 .vision::after {
@@ -386,18 +355,17 @@ h1 {
 
   position: absolute;
 
-  width: 420px;
-  height: 420px;
+  width: 380px;
+  height: 380px;
 
-  right: -100px;
-  bottom: -180px;
+  right: -90px;
+  bottom: -140px;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(177,226,255,.55),
-      rgba(177,226,255,0) 65%
-    );
+  border-radius: 50%;
+
+  background: var(--rose);
+
+  opacity: .24;
 }
 
 .vision-copy {
@@ -408,215 +376,249 @@ h1 {
 }
 
 .vision h2 {
+  color: var(--paper);
+
   margin-top: 16px;
-
-  font-size: clamp(42px, 5vw, 70px);
-
-  line-height: 1.03;
 }
 
 .vision p {
-  max-width: 660px;
+  max-width: 690px;
+
+  color: rgba(255,250,241,.78);
 
   font-size: 20px;
-  line-height: 1.7;
-
-  color: rgba(255,255,255,.80);
+  line-height: 1.75;
 }
 
-/* ---------------- CARDS ---------------- */
+/* STATEMENT */
+
+.statement {
+  padding: 130px 24px;
+
+  text-align: center;
+
+  background: var(--paper);
+}
+
+.statement-inner {
+  width: min(1000px, 100%);
+
+  margin: 0 auto;
+}
+
+.statement p {
+  margin: 0;
+
+  font-size: clamp(42px, 6vw, 82px);
+
+  line-height: 1.05;
+  letter-spacing: -3.5px;
+
+  font-weight: 790;
+}
+
+.statement .line-two {
+  color: var(--persimmon);
+}
+
+/* CARDS */
 
 .cards {
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(2, minmax(0,1fr));
 
   gap: 20px;
 
-  margin-top: 54px;
+  margin-top: 56px;
 }
 
 .card {
-  min-height: 310px;
+  min-height: 330px;
 
-  padding: 36px;
+  padding: 38px;
 
-  position: relative;
-
-  border-radius: 28px;
-
-  background:
-    rgba(255,255,255,.78);
-
-  border:
-    1px solid rgba(32,44,87,.08);
-
-  box-shadow:
-    0 20px 55px rgba(46,55,100,.08);
+  border-radius: 30px;
 
   overflow: hidden;
+
+  position: relative;
 }
 
 .card-number {
-  font-size: 13px;
-
-  color: #7b83a5;
-
-  font-weight: 800;
-
+  font-size: 12px;
+  font-weight: 850;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .card h3 {
-  margin: 60px 0 15px;
+  margin: 72px 0 14px;
 
-  font-size: 30px;
+  font-size: 32px;
+  line-height: 1.05;
 
-  letter-spacing: -1px;
+  letter-spacing: -1.4px;
 }
 
 .card p {
-  color: var(--muted);
+  max-width: 480px;
 
   font-size: 17px;
-
-  max-width: 460px;
+  line-height: 1.7;
 }
 
-/* ---------------- ALIA SYSTEM ---------------- */
+.card-one {
+  background: var(--persimmon);
+  color: var(--paper);
+}
+
+.card-two {
+  background: var(--saffron);
+  color: var(--ink);
+}
+
+.card-three {
+  background: var(--rose);
+  color: var(--ink);
+}
+
+.card-four {
+  background: var(--olive);
+  color: var(--paper);
+}
+
+/* SYSTEM */
 
 .system {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(232,236,255,.58),
-      rgba(255,255,255,.75)
-    );
+  padding: 70px;
 
-  border:
-    1px solid rgba(72,88,165,.09);
+  border-radius: 40px;
 
-  border-radius: 38px;
+  background: var(--paper);
 
-  padding: 64px;
+  border: 1px solid rgba(36,23,31,.08);
 }
 
 .system-map {
-  margin-top: 60px;
-
   display: grid;
 
   grid-template-columns:
     repeat(4, 1fr);
 
   gap: 16px;
+
+  margin-top: 60px;
 }
 
 .worker {
-  padding: 26px;
+  min-height: 250px;
 
-  min-height: 240px;
+  padding: 28px;
 
   border-radius: 24px;
 
-  background: white;
+  background: #f8efe2;
 
-  box-shadow:
-    0 16px 40px rgba(44,55,110,.08);
+  border: 1px solid rgba(74,32,56,.08);
+}
 
-  border:
-    1px solid rgba(54,65,110,.07);
+.worker:nth-child(2) {
+  background: #f1d0cc;
+}
+
+.worker:nth-child(3) {
+  background: #e8d59d;
+}
+
+.worker:nth-child(4) {
+  background: #d8dbc0;
 }
 
 .worker-icon {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
 
   display: grid;
   place-items: center;
 
-  border-radius: 14px;
+  border-radius: 50%;
 
-  margin-bottom: 28px;
+  background: var(--ink);
+  color: var(--paper);
 
-  background:
-    linear-gradient(
-      135deg,
-      #edf0ff,
-      #e4f7ff
-    );
+  margin-bottom: 30px;
 
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .worker h3 {
   margin: 0 0 10px;
 
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .worker p {
-  color: var(--muted);
+  color: #685b5e;
 
   font-size: 15px;
-
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* ---------------- PRINCIPLE ---------------- */
+/* PRINCIPLE */
 
 .principle {
-  text-align: center;
-
-  padding: 130px 25px;
-}
-
-.principle blockquote {
-  max-width: 940px;
+  width: min(1100px, calc(100% - 44px));
 
   margin: 0 auto;
 
-  font-size: clamp(38px, 5vw, 64px);
+  padding: 130px 0;
 
-  line-height: 1.14;
+  text-align: center;
+}
 
-  letter-spacing: -2.5px;
+.principle blockquote {
+  margin: 0 auto;
 
-  font-weight: 650;
+  max-width: 980px;
+
+  font-size: clamp(40px, 5vw, 68px);
+
+  line-height: 1.12;
+  letter-spacing: -2.6px;
+
+  font-weight: 720;
+}
+
+.principle .accent {
+  color: var(--persimmon);
 }
 
 .principle span {
   display: block;
 
-  margin-top: 30px;
+  margin-top: 28px;
 
-  color: #7a8298;
+  color: #7a696e;
 
-  font-size: 15px;
-
-  letter-spacing: .5px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-/* ---------------- CONTACT ---------------- */
+/* CONTACT */
 
 .contact {
-  text-align: center;
-
   padding: 100px 30px;
+
+  text-align: center;
 
   border-radius: 42px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #f0f3ff,
-      #f8effd,
-      #eef8ff
-    );
+  background: var(--saffron);
 
-  border:
-    1px solid rgba(82,93,160,.08);
+  color: var(--ink);
 }
 
 .contact h2 {
@@ -625,30 +627,35 @@ h1 {
 }
 
 .contact p {
+  max-width: 620px;
+
   margin: 0 auto 30px;
 
-  max-width: 600px;
-
   font-size: 18px;
+  line-height: 1.7;
 
-  color: var(--muted);
+  color: #574523;
 }
 
-/* ---------------- FOOTER ---------------- */
+.contact .button-primary {
+  background: var(--aubergine);
+}
+
+/* FOOTER */
 
 footer {
   width: min(1160px, calc(100% - 44px));
 
   margin: 0 auto;
 
-  padding: 50px 0 60px;
+  padding: 54px 0 60px;
 
   display: flex;
   justify-content: space-between;
 
-  gap: 20px;
+  gap: 22px;
 
-  color: #81889b;
+  color: #7f6f73;
 
   font-size: 14px;
 }
@@ -657,7 +664,7 @@ footer strong {
   color: var(--ink);
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* MOBILE */
 
 @media (max-width: 850px) {
 
@@ -670,7 +677,7 @@ footer strong {
   }
 
   .vision {
-    padding: 48px 28px;
+    padding: 52px 28px;
   }
 
   .cards {
@@ -678,7 +685,7 @@ footer strong {
   }
 
   .system {
-    padding: 40px 24px;
+    padding: 44px 24px;
   }
 
   .system-map {
@@ -688,6 +695,7 @@ footer strong {
   footer {
     flex-direction: column;
   }
+
 }
 
 </style>
@@ -707,11 +715,17 @@ footer strong {
 
   <div class="nav-links">
 
-    <a href="#vision">Vision</a>
+    <a href="#vision">
+      Vision
+    </a>
 
-    <a href="#system">How it works</a>
+    <a href="#system">
+      How it works
+    </a>
 
-    <a href="#principles">Principles</a>
+    <a href="#principles">
+      Principles
+    </a>
 
     <a
       class="nav-button"
@@ -727,8 +741,8 @@ footer strong {
 
 <header class="hero">
 
-  <div class="glow-one"></div>
-  <div class="glow-two"></div>
+  <div class="hero-shape-one"></div>
+  <div class="hero-shape-two"></div>
 
   <div class="hero-content">
 
@@ -736,25 +750,26 @@ footer strong {
 
       <span class="badge-dot"></span>
 
-      Building a new kind of financial company
+      Building a different kind of financial company
 
     </div>
 
     <h1>
 
-      Intelligence for your
+      Money is changing.
 
-      <span class="gradient-text">
-        financial future.
+      <span class="hero-accent">
+        Intelligence should change with it.
       </span>
 
     </h1>
 
     <p class="hero-copy">
 
-      Alia is building financial intelligence that can
-      research, reason, coordinate specialized AI workers
-      and operate within boundaries defined by people.
+      Alia is building a different kind of financial
+      company — one where intelligence can research,
+      coordinate, learn and work toward a financial
+      mission while people remain in control.
 
     </p>
 
@@ -795,28 +810,53 @@ footer strong {
 
       <div
         class="kicker"
-        style="color:#c9d6ff;"
+        style="color:#efb495;"
       >
         THE VISION
       </div>
 
       <h2>
-        What if intelligence could work for you?
+        What if financial intelligence could work for more people?
       </h2>
 
       <p>
 
-        For generations, powerful financial systems have
-        largely belonged to institutions.
+        Powerful financial systems have traditionally been
+        built for institutions with enormous resources.
 
-        Alia explores a different future: intelligent
-        systems that can continuously learn, research,
-        organize work and help people build and manage
-        financial capability of their own.
+        Alia explores another possibility: intelligence that
+        can continuously research, organize work, challenge
+        assumptions and help build financial capability under
+        human direction.
 
       </p>
 
     </div>
+
+  </div>
+
+</section>
+
+
+<section class="statement">
+
+  <div class="statement-inner">
+
+    <p>
+
+      She researches.<br>
+
+      She questions.<br>
+
+      She coordinates.<br>
+
+      She learns.<br>
+
+      <span class="line-two">
+        She acts within limits.
+      </span>
+
+    </p>
 
   </div>
 
@@ -830,45 +870,44 @@ footer strong {
   </div>
 
   <h2>
-    Not just another AI assistant.
+    Intelligence becomes more useful when it works as a system.
   </h2>
 
   <p class="section-intro">
 
-    Alia is designed as a coordinated system of
-    intelligence — where specialized AI workers can do
-    different jobs while operating under shared rules,
-    oversight and purpose.
+    Alia is not being designed as one assistant that tries
+    to do everything. Specialized intelligence can perform
+    different roles while working toward one shared mission.
 
   </p>
 
 
   <div class="cards">
 
-    <article class="card">
+    <article class="card card-one">
 
       <div class="card-number">
         01 / UNDERSTAND
       </div>
 
       <h3>
-        See the bigger picture.
+        See what connects.
       </h3>
 
       <p>
 
         Markets, liquidity, macro conditions and financial
-        signals are connected.
+        behavior do not exist in isolation.
 
-        Alia is being built to understand those
-        relationships rather than simply react to a chart.
+        Alia is designed to study relationships, not simply
+        react to individual signals.
 
       </p>
 
     </article>
 
 
-    <article class="card">
+    <article class="card card-two">
 
       <div class="card-number">
         02 / THINK
@@ -884,50 +923,50 @@ footer strong {
 
         Alia's workers gather information, challenge
         assumptions and review risk before financial
-        actions are considered.
+        action is considered.
 
       </p>
 
     </article>
 
 
-    <article class="card">
+    <article class="card card-three">
 
       <div class="card-number">
         03 / COORDINATE
       </div>
 
       <h3>
-        Intelligence becomes a team.
+        Turn intelligence into a team.
       </h3>
 
       <p>
 
         Different AI workers can specialize in research,
-        risk, execution and operations while Alia
-        coordinates the overall mission.
+        risk, operations and execution while Alia coordinates
+        the wider mission.
 
       </p>
 
     </article>
 
 
-    <article class="card">
+    <article class="card card-four">
 
       <div class="card-number">
         04 / PROTECT
       </div>
 
       <h3>
-        Autonomy needs boundaries.
+        Keep people in control.
       </h3>
 
       <p>
 
-        Human authority remains part of the architecture.
+        Autonomy does not mean unlimited authority.
 
-        Permissions, capital limits, risk controls and
-        stop mechanisms define what Alia is allowed to do.
+        Permissions, capital limits, controls and stop
+        mechanisms define what Alia is allowed to do.
 
       </p>
 
@@ -950,13 +989,13 @@ footer strong {
     </div>
 
     <h2>
-      A company designed around AI workers.
+      A company designed around specialized intelligence.
     </h2>
 
     <p class="section-intro">
 
-      Instead of asking one AI to do everything, Alia
-      coordinates specialized roles that contribute to
+      Instead of asking one AI to handle every decision,
+      Alia coordinates different roles that contribute to
       the same financial mission.
 
     </p>
@@ -967,7 +1006,7 @@ footer strong {
       <div class="worker">
 
         <div class="worker-icon">
-          ✦
+          A
         </div>
 
         <h3>
@@ -975,8 +1014,10 @@ footer strong {
         </h3>
 
         <p>
-          Coordinates objectives, evaluates evidence
-          and directs the wider system.
+
+          Coordinates objectives, reviews evidence and
+          directs the wider operating system.
+
         </p>
 
       </div>
@@ -985,7 +1026,7 @@ footer strong {
       <div class="worker">
 
         <div class="worker-icon">
-          ◌
+          M
         </div>
 
         <h3>
@@ -993,8 +1034,10 @@ footer strong {
         </h3>
 
         <p>
-          Studies markets, liquidity, momentum and
-          changing financial conditions.
+
+          Studies markets, liquidity, momentum, macro
+          conditions and changing financial environments.
+
         </p>
 
       </div>
@@ -1003,7 +1046,7 @@ footer strong {
       <div class="worker">
 
         <div class="worker-icon">
-          ◈
+          R
         </div>
 
         <h3>
@@ -1011,8 +1054,10 @@ footer strong {
         </h3>
 
         <p>
-          Challenges decisions and evaluates whether an
-          action belongs inside defined limits.
+
+          Challenges decisions and determines whether
+          proposed actions belong inside defined boundaries.
+
         </p>
 
       </div>
@@ -1021,7 +1066,7 @@ footer strong {
       <div class="worker">
 
         <div class="worker-icon">
-          ↗
+          O
         </div>
 
         <h3>
@@ -1029,8 +1074,10 @@ footer strong {
         </h3>
 
         <p>
-          Carries out permitted work through controlled,
-          auditable systems.
+
+          Carries out permitted work through controlled
+          and auditable systems.
+
         </p>
 
       </div>
@@ -1049,8 +1096,12 @@ footer strong {
 
   <blockquote>
 
-    “The future of financial intelligence shouldn't only
-    belong to the institutions powerful enough to build it.”
+    “The future of financial intelligence should not only
+    belong to the institutions
+
+    <span class="accent">
+      powerful enough to build it.
+    </span>”
 
   </blockquote>
 
@@ -1065,7 +1116,7 @@ footer strong {
 
   <div class="contact">
 
-    <div class="kicker">
+    <div class="kicker" style="color:#4a2038;">
       ALIA
     </div>
 
@@ -1075,8 +1126,8 @@ footer strong {
 
     <p>
 
-      Alia is an early-stage financial intelligence
-      project exploring how AI workers, human governance
+      Alia is an early-stage financial intelligence company
+      exploring how specialized AI workers, human governance
       and financial infrastructure can operate as one
       coordinated system.
 
@@ -1100,8 +1151,11 @@ footer strong {
 <footer>
 
   <div>
+
     <strong>ALIA</strong><br>
-    Intelligence for your financial future.
+
+    A new kind of financial intelligence.
+
   </div>
 
   <div>
