@@ -3,63 +3,465 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alia</title>
+  <title>Alia | Autonomous Financial Intelligence</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b0f14;
+      background: #080d12;
       color: white;
-      text-align: center;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(8, 13, 18, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #1d2a35;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    nav a {
+      color: #c8d0da;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #7dd3fc;
     }
 
     .hero {
-      min-height: 100vh;
+      min-height: 88vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
-      box-sizing: border-box;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .eyebrow {
+      color: #7dd3fc;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 64px;
-      margin: 15px 0;
+      font-size: clamp(64px, 11vw, 130px);
+      margin: 0;
+      letter-spacing: 8px;
     }
 
-    .tagline {
+    .hero h2 {
+      font-size: clamp(25px, 4vw, 48px);
+      max-width: 900px;
+      margin: 24px auto 10px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      max-width: 800px;
+      color: #aeb8c2;
+      font-size: 19px;
+      margin: 20px auto;
+    }
+
+    .button-row {
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      margin: 8px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: #7dd3fc;
+      color: #081018;
+    }
+
+    .secondary {
+      border: 1px solid #344553;
+      color: white;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      max-width: 800px;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
       color: #7dd3fc;
+      font-size: 13px;
       font-weight: bold;
       letter-spacing: 2px;
     }
 
-    p {
+    .section-title h2 {
+      font-size: 42px;
+      margin: 10px 0;
+    }
+
+    .section-title p {
+      color: #9eaab5;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #0f171f;
+      border: 1px solid #1f2f3b;
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #aeb8c2;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #142632;
+      color: #7dd3fc;
+    }
+
+    .architecture {
+      background: #0b1218;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .flow div {
+      border-left: 3px solid #7dd3fc;
+      background: #101820;
+      padding: 22px;
+      border-radius: 8px;
+    }
+
+    .risk {
+      border: 1px solid #273846;
+      background: linear-gradient(180deg, #0d151c, #091016);
+    }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 120px;
+    }
+
+    .contact p {
+      color: #aeb8c2;
       max-width: 700px;
-      font-size: 20px;
-      line-height: 1.6;
-      color: #c8d0da;
+      margin: 15px auto;
+    }
+
+    footer {
+      border-top: 1px solid #1d2a35;
+      padding: 28px 8%;
+      color: #76828d;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      section {
+        padding: 70px 22px;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <section class="hero">
-    <div class="tagline">AUTONOMOUS FINANCIAL INTELLIGENCE</div>
+
+  <nav>
+    <div class="logo">ALIA</div>
+
+    <div class="links">
+      <a href="#what">What Alia Does</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#risk">Risk</a>
+      <a href="#status">Status</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">AUTONOMOUS FINANCIAL INTELLIGENCE</div>
 
     <h1>ALIA</h1>
 
-    <p>
-      Alia is an AI-driven financial intelligence and automation company
-      designed to research markets, manage risk, coordinate AI workers,
-      and operate financial systems under human-defined controls.
-    </p>
+    <h2>
+      Building governed AI systems for financial intelligence,
+      market research, risk management and autonomous operations.
+    </h2>
 
     <p>
-      Building the infrastructure for intelligent, governed,
-      autonomous finance.
+      Alia is an AI-driven financial infrastructure company designed to
+      coordinate specialized AI workers, analyze markets, evaluate risk and
+      operate financial systems under human-defined controls.
     </p>
+
+    <div class="button-row">
+      <a class="button primary" href="#what">Explore Alia</a>
+      <a class="button secondary" href="#contact">Investor Interest</a>
+    </div>
+  </header>
+
+  <section id="what">
+    <div class="section-title">
+      <span>WHAT ALIA DOES</span>
+      <h2>Financial intelligence as an operating system.</h2>
+      <p>
+        Alia is being built as a coordinated AI company rather than a single
+        trading bot. Specialized workers perform research, risk review and
+        execution while operating inside defined governance boundaries.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Market Intelligence</h3>
+        <p>
+          Researches market structure, momentum, liquidity, volatility,
+          macroeconomic conditions and trading environments.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>AI Coordination</h3>
+        <p>
+          Routes work among specialized AI agents with clearly defined
+          responsibilities and reporting relationships.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Risk Management</h3>
+        <p>
+          Reviews proposed actions against capital limits, execution costs,
+          market conditions and company policy.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Financial Operations</h3>
+        <p>
+          Connects research, decision-making, execution, reconciliation and
+          reporting into one controlled operating system.
+        </p>
+      </div>
+    </div>
   </section>
+
+  <section id="architecture" class="architecture">
+    <div class="section-title">
+      <span>HOW ALIA WORKS</span>
+      <h2>One AI CEO. Specialized workers. Human authority.</h2>
+      <p>
+        Alia coordinates multiple roles instead of asking one model to perform
+        every financial task.
+      </p>
+    </div>
+
+    <div class="flow">
+      <div>
+        <h3>ALIA CEO</h3>
+        <p>
+          Coordinates company objectives, delegates work and reviews evidence
+          before approving the next operational step.
+        </p>
+      </div>
+
+      <div>
+        <h3>Market Scout</h3>
+        <p>
+          Collects market evidence and identifies opportunities or anomalies.
+        </p>
+      </div>
+
+      <div>
+        <h3>Risk Officer</h3>
+        <p>
+          Independently reviews risk, economics and policy compliance.
+        </p>
+      </div>
+
+      <div>
+        <h3>Trading Worker</h3>
+        <p>
+          Executes only qualified actions through approved trading systems and
+          existing safety controls.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="risk">
+    <div class="section-title">
+      <span>GOVERNANCE & RISK</span>
+      <h2>Autonomy with boundaries.</h2>
+      <p>
+        Financial autonomy should not mean unrestricted authority. Alia is
+        designed around bounded permissions, independent review and
+        owner-defined controls.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card risk">
+        <h3>Human-defined authority</h3>
+        <p>
+          The owner determines what Alia is allowed to access, spend, trade and
+          automate.
+        </p>
+      </div>
+
+      <div class="card risk">
+        <h3>Capital limits</h3>
+        <p>
+          Trading systems operate inside explicit allocation and drawdown
+          constraints.
+        </p>
+      </div>
+
+      <div class="card risk">
+        <h3>Execution safeguards</h3>
+        <p>
+          Preview protections, fee limits, reconciliation and kill-switch
+          controls remain part of the execution path.
+        </p>
+      </div>
+
+      <div class="card risk">
+        <h3>Auditability</h3>
+        <p>
+          Research, decisions, worker outcomes and financial actions are
+          designed to leave traceable evidence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="section-title">
+      <span>CURRENT BUILD</span>
+      <h2>Alia is operating as an early-stage financial AI system.</h2>
+      <p>
+        The current build focuses on proving coordination, governance,
+        financial research and controlled execution before expanding capital
+        and capabilities.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>AI CEO Architecture</h3>
+        <p>Worker-routing and CEO review structure established.</p>
+        <div class="status">ACTIVE DEVELOPMENT</div>
+      </div>
+
+      <div class="card">
+        <h3>Market Intelligence</h3>
+        <p>Multi-asset market research and evidence collection operating.</p>
+        <div class="status">ACTIVE</div>
+      </div>
+
+      <div class="card">
+        <h3>Risk Review</h3>
+        <p>Independent review layer for market and execution decisions.</p>
+        <div class="status">ACTIVE</div>
+      </div>
+
+      <div class="card">
+        <h3>Trading Infrastructure</h3>
+        <p>Controlled live execution environment operating with bounded capital.</p>
+        <div class="status">PILOT</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="eyebrow">BUILDING THE NEXT FINANCIAL OPERATING MODEL</div>
+
+    <h2>Alia is being built from the ground up.</h2>
+
+    <p>
+      We are developing a governed AI company capable of combining research,
+      decision-making, specialized AI labor and financial operations into one
+      coordinated system.
+    </p>
+
+    <a class="button primary" href="mailto:contact@alia.example">
+      Contact Alia
+    </a>
+  </section>
+
+  <footer>
+    <div>© 2026 Alia</div>
+    <div>Autonomous Financial Intelligence</div>
+  </footer>
+
 </body>
 </html>
